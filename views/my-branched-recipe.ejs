@@ -1,0 +1,20 @@
+<!-- views/my-branched-recipe.ejs -->
+<%- include('navbar') %>
+
+<main>
+  <section class="recipes">
+    <h2>My Branched Recipes</h2>
+    <div class="recipe-cards">
+      <% if (branchedRecipes && branchedRecipes.length > 0) { %>
+        <% branchedRecipes.forEach((recipe) => { %>
+          <div class="recipe-card">
+            <h3><%= recipe.title %></h3>
+            <!-- Display other recipe details as needed -->
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No branched recipes found.</p>
+      <% } %>
+    </div>
+  </section>
+</main>

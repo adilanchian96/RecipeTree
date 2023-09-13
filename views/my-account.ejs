@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>My Account</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Your Recipes App</h1>
+  </header>
+  <%- include('navbar') %> <!-- Include the navigation bar -->
+  <section>
+    <h2>Your Recipes</h2>
+    <div class="recipe-cards">
+      <% if (recipes && recipes.length > 0) { %>
+        <% recipes.forEach((recipe) => { %>
+          <div class="recipe-card">
+            <h3><%= recipe.title %></h3>
+            <!-- Add a form for deleting the recipe -->
+            <form method="POST" action="/recipes/delete">
+            <input type="hidden" name="recipeId" value="<%= recipe._id %>">
+            <button type="submit" class="delete-button">Delete</button>
+            </form>
+            <p>Ingredients: <%= recipe.ingredients.join(', ') %></p>
+            <p>Instructions: <%= recipe.instructions %></p>
+            <!-- Branch button linking to the /recipes/branch/:recipeId route -->
+            <a href="/recipes/branch/<%= recipe._id %>" class="btn btn-primary">Branch</a>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p>No recipes found.</p>
+      <% } %>
+    </div>
+  </section>
+</body>
+</html>

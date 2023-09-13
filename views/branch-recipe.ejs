@@ -1,0 +1,24 @@
+<!-- views/branch-recipe.ejs -->
+<%- include('navbar') %>
+
+<main>
+  <section class="recipe-branch-form">
+    <h2>Branch Recipe</h2>
+    <form method="POST" action="/recipes/branch">
+      <!-- Uneditable title -->
+      <h3><%= parentRecipe.title %></h3>
+
+      <!-- Editable ingredients field (prefilled with parent recipe details) -->
+      <label for="ingredients">Ingredients:</label>
+      <textarea id="ingredients" name="ingredients" required><%= parentRecipe.ingredients %></textarea>
+
+      <!-- Editable instructions field (prefilled with parent recipe details) -->
+      <label for="instructions">Instructions:</label>
+      <textarea id="instructions" name="instructions" required><%= parentRecipe.instructions %></textarea>
+
+      <input type="hidden" name="parentRecipe" value="<%= parentRecipe._id %>">
+
+      <button type="submit">Create Branched Recipe</button>
+    </form>
+  </section>
+</main>

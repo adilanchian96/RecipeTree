@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Your Recipes App</title>
+</head>
+<body>
+    <header>
+      <h1>Welcome to Your Recipes App</h1>
+      <p>Create and share delicious recipes</p>
+    </header>
+    <%- include('navbar') %> <!-- Include the navigation bar -->
+    <!-- Include this in your homepage.ejs or relevant template -->
+    <div>
+      <% if (messages.success) { %>
+          <%= messages.success[0] %>
+      <% } %>
+    </div>
+    <section class="recipe-cards">
+      <!-- Sample Recipe Cards -->
+      <div class="recipe-card">
+        <h2>Delicious Pasta Dish</h2>
+        <p>This is a mouthwatering pasta recipe...</p>
+      </div>
+      <!-- Add more recipe cards here -->
+    </section>
+  </body>
+  </html>
